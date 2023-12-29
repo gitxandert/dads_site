@@ -5,10 +5,27 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Light Ascending</title>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.8.0/p5.js"></script>
+        <style>
+
+            #book_trans{
+                animation: appear 12s ease forwards;
+            }
+
+            @keyframes appear {
+                from{
+                    opacity: 0;
+                }
+
+                to{
+                    opacity: 1;
+                }
+            }
+        </style>
     </head>
     
     <body style="display: flex; margin: 0px;">
-        <!-- <img src="book_cover.jpg" alt="the words '12 Days of Christmas: Light Ascending' appear above a Christmas tree and a calendar of December, with the numbers of the 12 days leading up to Christmas in gold"> -->
+        <img id='book' src="book_cover.jpg" alt="the words '12 Days of Christmas: Light Ascending' appear above a Christmas tree and a calendar of December, with the numbers of the 12 days leading up to Christmas in gold" style="opacity: 0; display: flex; position: absolute;">
         <script src="glow.js"></script>
+        <script src="book_trans.js"></script>
     </body>
 </html>
