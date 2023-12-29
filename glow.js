@@ -8,6 +8,8 @@ let fill_c = 0;
 
 let op_sc = 1;
 
+let set_trans=true;
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
 }
@@ -33,10 +35,12 @@ function glow(){
     if(limit>marker){
       limit_int=-limit_int;
     }
-  }else{
-    if(limit>marker){
-        fill_c+=2;
+  }else if(limit>marker){
+    fill_c+=2;
+    if(set_trans){
+        trans();
     }
+    set_trans=false;
   }
   if(limit<0){
     marker=marker*2;
