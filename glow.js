@@ -8,10 +8,17 @@ let fill_c = 0;
 
 let op_sc = 1;
 
-let set_trans=true;
+let set_trans = true;
+
+let text_num = 0;
+
+let text_c = 255;
+
+let text_op = 0;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  textFont('Dancing Script');
 }
 
 function draw(){
@@ -21,6 +28,12 @@ function draw(){
   rect(0,0,windowWidth, windowHeight);
   if(fill_c<255){
     glow();
+    textFont('Dancing Script');
+    set_text();
+    text_op-=5;
+    if(text_op<0){
+      text_op==0;
+    }
   }
 }
 
@@ -31,14 +44,18 @@ function glow(){
     ellipse(100, height-100, limit-i+10, limit-i+10);
   }
   limit=limit+limit_int;
-  if(marker<400){
+  if(marker<800){
     if(limit>marker){
       limit_int=-limit_int;
+      text_num+=1;
+      text_op=255;
     }
   }else if(limit>marker){
     fill_c+=2;
     if(set_trans){
         trans();
+        text_num+=1;
+        text_op=255;
     }
     set_trans=false;
   }
@@ -46,4 +63,30 @@ function glow(){
     marker=marker*2;
     limit_int=marker/60;
   }
+}
+
+function set_text(){
+    textAlign(CENTER);
+    textFont('Dancing Script');
+    if(text_num==1){
+      textFont('Dancing Script');
+        fill(text_c, text_op);
+        textSize(height/10);
+        text('Light', width/2, height/2);
+    }
+    if(text_num==2){
+        fill(text_c, text_op);
+        textSize(height/10);
+        text('Will', width/2, height/2);
+    }
+    if(text_num==3){
+        fill(text_c, text_op);
+        textSize(height/10);
+        text('Win', width/2, height/2);
+    }
+    if(text_num==4){
+        fill(text_c, text_op);
+        textSize(height/10);
+        text('Out!', width/2, height/2);
+    }
 }
