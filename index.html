@@ -21,11 +21,36 @@
                     opacity: 1;
                 }
             }
+
+            #video_trans{
+                animation: vid_appear 4s ease forwards;
+            }
+
+            @keyframes vid_appear {
+                from{
+                    opacity: 0;
+                    left: 1000px;
+                }
+
+                to{
+                    opacity: 1;
+                    left: 0px;
+                }
+            }
         </style>
     </head>
     
-    <body style="display: flex; margin: 0px; font-family: 'Dancing Script'">
-        <img id='book' src="book_cover.jpg" alt="the words '12 Days of Christmas: Light Ascending' appear above a Christmas tree and a calendar of December, with the numbers of the 12 days leading up to Christmas in gold" style="opacity: 0; display: flex; position: absolute;">
+    <body style="margin: 0px; font-family: 'Dancing Script'">
+        <div id="contents" style="display: inline-flex; justify-content: space-between; position: absolute;">
+            <img id='book' src="book_cover.jpg" alt="the words '12 Days of Christmas: Light Ascending' appear above a Christmas tree and a calendar of December, with the numbers of the 12 days leading up to Christmas in gold" style="opacity: 0; position: relative; order: 2;">
+            <div id="links" style="display: flex; position: relative; flex-direction: column; align-items: center; justify-content: space-evenly; order: 2; left: 10vh;">
+                <div id="trailer" style="opacity: 0; margin: 10px; display: flex; flex-direction: column; align-items: center;">
+                    <p style="font-size: 30px; order: 1; margin: 10px;">Book Trailer</p>
+                    <iframe src="https://www.youtube.com/embed/ciwQWFx-MYw" frameborder="0" style="margin: 10px; order: 1; width: 30vw; height: 30vh; left: 1000px;"></iframe>
+                </div>
+                <a href="https://www.amazon.com/12-Days-Christmas-Light-Ascending/dp/1641400307/ref=sr_1_1?crid=1XC7FJCFE7CPG&keywords=paul+michael+toth&qid=1703898959&sprefix=paul+michael+toth%2Caps%2C120&sr=8-1" style="opacity: 0; margin: 10px; order: 3; font-size: 30px; text-decoration: none; text-align: center; top: 50px;">Available on Amazon</a>
+            </div>
+        </div>
         <script src="glow.js"></script>
         <script src="book_trans.js"></script>
     </body>
